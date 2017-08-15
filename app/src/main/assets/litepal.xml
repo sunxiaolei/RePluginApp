@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <!-- 数据库名字 -->
+    <dbname value="PluginApp.db"/>
+    <!-- 数据库版本号 -->
+    <version value="1"/>
+    <!-- 表 -->
+    <list>
+
+        <!-- 插件列表 -->
+        <mapping class="xiaolei.repluginmain.db.model.PluginModel"/>
+
+    </list>
+</litepal>

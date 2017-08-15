@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion as int
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+    defaultConfig {
+        applicationId 'xiaolei.repluginmain'
+        minSdkVersion rootProject.ext.android.minSdkVersion as int
+        targetSdkVersion rootProject.ext.android.targetSdkVersion as int
+        versionCode rootProject.ext.android.versionCode as int
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+apply plugin: 'replugin-host-gradle'
+repluginHostConfig {
+    useAppCompat = true
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile rootProject.ext.dependencies['replugin']
+    compile rootProject.ext.dependencies['appcompat-v7']
+    compile rootProject.ext.dependencies['cardview-v7']
+    compile rootProject.ext.dependencies['butterknife']
+    annotationProcessor rootProject.ext.dependencies['butterknife-compiler']
+    compile rootProject.ext.dependencies['rxandroid']
+    compile rootProject.ext.dependencies['rxjava']
+    compile rootProject.ext.dependencies['rxlifecycle']
+    compile rootProject.ext.dependencies['rxlifecycle-components']
+    compile rootProject.ext.dependencies['rxbinding']
+    compile rootProject.ext.dependencies['rxbinding-support-v4']
+    compile rootProject.ext.dependencies['rxbinding-appcompat-v7']
+    compile rootProject.ext.dependencies['rxbinding-design']
+    compile rootProject.ext.dependencies['rxbinding-recyclerview-v7']
+    compile rootProject.ext.dependencies['adapter-helper']
+    compile rootProject.ext.dependencies['utils']
+    compile rootProject.ext.dependencies['litepal']
+    compile rootProject.ext.dependencies['glide']
+    compile rootProject.ext.dependencies['flowingdrawer']
+    compile rootProject.ext.dependencies['nineoldandroids']
+    compile rootProject.ext.dependencies['rxpermissions']
+    compile rootProject.ext.dependencies['md-dialog']
+    compile rootProject.ext.dependencies['md-dialog-commons']
+}
